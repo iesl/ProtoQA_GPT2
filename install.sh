@@ -7,5 +7,6 @@ git clone git@github.com:huggingface/transformers.git
 cd transformers
 git checkout tags/v2.1.1
 pip install -e .
+pip install tensorboardX
 cd ../
 mkdir pre_trained_model
