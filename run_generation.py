@@ -272,7 +272,7 @@ def main():
                         help="random seed for initialization")
     parser.add_argument('--stop_token', type=str, default=".",
                         help="Token at which text generation is stopped")
-    parser.add_argument('--input_file', type=str, default="./all_170.jsonl",
+    parser.add_argument('--input_file', type=str, default="./dev.jsonl",
                         help="input file containing sentences")
     parser.add_argument('--output', type=str, default="./",
                         help="input file containing sentences")
