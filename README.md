@@ -23,7 +23,8 @@ python run_generation.py \
 --input_file='./data/dev/crowdsource_dev.jsonl'
 --output='./'
 ```
-    This will generate ranked_answer.jsonl under the same directionary. 
+
+This will generate ranked_answer.jsonl under the same directionary. 
 - Run protoqa-evaluator, for example:
 ```bash
 protoqa_evaluator evaluate --similarity_function exact_match targets.jsonl ranked_answer.jsonl
