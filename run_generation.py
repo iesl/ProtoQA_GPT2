@@ -284,8 +284,8 @@ def main():
     set_seed(args)
     args.model_type = args.model_type.lower()
     model_class, tokenizer_class = MODEL_CLASSES[args.model_type]
-    tokenizer = tokenizer_class.from_pretrained(args.model_name_or_path, cache_dir = '/mnt/nfs/work1/mccallum/xiangl/family_feud/fine_tune_gpt2/pre_trained_model')
-    model = model_class.from_pretrained(args.model_name_or_path, cache_dir = '/mnt/nfs/work1/mccallum/xiangl/family_feud/fine_tune_gpt2/pre_trained_model')
+    tokenizer = tokenizer_class.from_pretrained(args.model_name_or_path, cache_dir = './pre_trained_model')
+    model = model_class.from_pretrained(args.model_name_or_path, cache_dir = './pre_trained_model')
     model.to(args.device)
     model.eval()
 
@@ -305,8 +305,7 @@ def main():
     result = []
     i=0
     num = len(questions)
-    # for single_question_idx in range(len(questions)):
-    for single_question_idx in range(1):
+    for single_question_idx in range(len(questions)):
         print(i,'th example')
         raw_text = questions[single_question_idx]
         i+=1

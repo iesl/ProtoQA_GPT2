@@ -8,11 +8,11 @@ This repo contains the GPT2 baselines in the [ ProtoQA ](https://www.aclweb.org/
 - Pytorch: 1.4.0
 - Huggingface transformer: 2.1.1
 
-Following the installation.sh in the repo will create a conda enviroment named protoqa, with corresponding libraries installed. Note: protoqa-evaluater is included. 
+Following the install.sh in the repo will create a conda enviroment named protoqa, with corresponding libraries installed. Note: protoqa-evaluater is included. 
 
 ## Fine-tuned Model and Inference
 - Fine-tuned model can be download here: 
-- Generate answers using the fine-tuned GPT2 model:
+- Generate answers using the fine-tuned GPT2 model (or run generation.sh):
 `python run_generation.py \` 
 	`--model_type=gpt2 \`
    ` --model_name_or_path='./models/large_outputb_1e_1gu_8' \`
