@@ -10,7 +10,7 @@ This repo contains the GPT2 baselines in the [ ProtoQA ](https://www.aclweb.org/
 
 Following the install.sh in the repo will create a conda environment named protoqa, with corresponding libraries installed. Note: protoqa-evaluater is included. 
 
-## Download Fine-Tuned Model and Inference
+## Download fine-tuned GPT2 model and generate answers
 - Fine-tuned model can be downloaded [here](https://drive.google.com/file/d/1HmwcYbuUe0EQN0a2mOnv68pv3w-6Kivn/view?usp=sharing)
 - Generate answers using the fine-tuned GPT2 model:
 ```bash
@@ -31,6 +31,6 @@ protoqa_evaluator evaluate --similarity_function exact_match targets.jsonl ranke
 ```
 - For detail usage of protoqa-evaluator, please refer to https://github.com/iesl/protoqa-evaluator
 
-## Fine Tune GPT2
+## Fine tune GPT2
 - Use the train/dev in the data directory. The train/dev data are from ProtoQA scrapped data. 
 - Run finetune.sh to fine tune the GPT2. 
