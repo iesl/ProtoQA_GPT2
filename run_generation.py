@@ -51,30 +51,17 @@ def set_seed(args):
     if args.n_gpu > 0:
         torch.cuda.manual_seed_all(args.seed)
 
-def load_data_from_jsonl(data_path: Union[Path, str]) -> Dict:
+def load_data_from_jsonl(data_path):
     """
-    Load jsonl input data, converting the answers-cleaned item to use frozenset keys.
+    Load jsonl input data.
     :param data_path: path to jsonl data
-    :return: question_id indexed Dict
+    :return: question_id normalized_questions
     """
     question_data = dict()
     with open(data_path) as data:
         for q in data:
             q_json = json.loads(q)
-            if isinstance(q_json["answers-cleaned"], list):
-                q_json["answers-cleaned"] = {
-                    frozenset(ans_cluster["answers"]): ans_cluster["count"]
-                    for ans_cluster in q_json["answers-cleaned"]
-                }
-            # The following attempts to handle various formats of the data
-            if "normalized-question" not in q_json:
-                q_json["normalized-question"] = q_json["question"][
-                    "normalized-question"
-                ]
-            if "metadata" in q_json:
-                question_data[q_json["metadata"]["id"]] = q_json
-            else:
-                question_data[q_json["questionid"]] = q_json
+            question_data[q_json['metadata']['id']] = q_json['question']['normalized']
     return question_data
 
 
@@ -188,7 +175,7 @@ def get_question(data_dict):
     qidx = []
     questions = []
     for q in data_dict:
-        question = data_dict[q]['normalized-question']
+        question = data_dict[q]
         transformed_question = transform_question(question)
         questions.append(transformed_question)
         qidx.append(q)
