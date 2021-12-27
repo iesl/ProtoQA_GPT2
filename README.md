@@ -20,14 +20,14 @@ python run_generation.py \
 --length=10 \
 --num_samples=300 \
 --temperature=0.69 \
---input_file='./data/dev/crowdsource_dev.jsonl'
+--input_file='./data/dev/dev.crowdsourced.jsonl \
 --output='./'
 ```
 
 This will generate ranked_answer.jsonl under the same directionary. 
 - Run protoqa-evaluator to evaluate against ground truth answers, for example:
 ```bash
-protoqa_evaluator evaluate --similarity_function exact_match targets.jsonl ranked_answer.jsonl
+protoqa_evaluator evaluate --similarity_function exact_match ./data/dev/dev.crowdsourced.jsonl ranked_list.jsonl
 ```
 - For detail usage of protoqa-evaluator, please refer to https://github.com/iesl/protoqa-evaluator
 
