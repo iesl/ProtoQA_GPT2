@@ -15,7 +15,7 @@ import torch.nn.functional as F
 import numpy as np
 
 from transformers import GPT2Config, OpenAIGPTConfig, XLNetConfig, TransfoXLConfig, XLMConfig, CTRLConfig
-
+from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 from transformers import GPT2LMHeadModel, GPT2Tokenizer
 
 import json
@@ -42,6 +42,7 @@ ALL_MODELS = sum((tuple(conf.pretrained_config_archive_map.keys()) for conf in (
 
 MODEL_CLASSES = {
     'gpt2': (GPT2LMHeadModel, GPT2Tokenizer),
+    'allenai/macaw-3b': (AutoModelForSeq2SeqLM, AutoTokenizer),
 }
 
 
