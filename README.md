@@ -11,6 +11,8 @@ This repo contains the GPT2 baselines in the [ ProtoQA ](https://www.aclweb.org/
 Following the install.sh in the repo will create a conda environment named protoqa, with corresponding libraries installed. Note: protoqa-evaluater is included. 
 
 ## Download fine-tuned GPT2 model and generate answers
+Colab notebook demo: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/elliottower/ProtoQA_GPT2/blob/main/GPT2_demo.ipynb)
+
 - Fine-tuned model can be downloaded [here](https://drive.google.com/file/d/1HmwcYbuUe0EQN0a2mOnv68pv3w-6Kivn/view?usp=sharing)
 - Generate answers using the fine-tuned GPT2 model:
 ```bash
@@ -20,14 +22,14 @@ python run_generation.py \
 --length=10 \
 --num_samples=300 \
 --temperature=0.69 \
---input_file='./data/dev/crowdsource_dev.jsonl'
+--input_file='./data/dev/dev.crowdsourced.jsonl \
 --output='./'
 ```
 
 This will generate ranked_answer.jsonl under the same directionary. 
 - Run protoqa-evaluator to evaluate against ground truth answers, for example:
 ```bash
-protoqa_evaluator evaluate --similarity_function exact_match targets.jsonl ranked_answer.jsonl
+protoqa_evaluator evaluate --similarity_function exact_match ./data/dev/dev.crowdsourced.jsonl ranked_list.jsonl
 ```
 - For detail usage of protoqa-evaluator, please refer to https://github.com/iesl/protoqa-evaluator
 
